@@ -1,4 +1,4 @@
-## 1. Project Goal
+## Project Goal
 Docker dashboard and watchdog. `/var/run/docker.sock` monitors and control containers directly. Uses FastAPI(backend) + (Svelte + TailwindCSS(frontend))
 
 # Barebones
