@@ -29,11 +29,13 @@ Docker dashboard and watchdog. `/var/run/docker.sock` monitors and control conta
 
 ---
 
-### Niche
+### Miscs
 
 - [ ] username passwd auth
 - [ ] Auto-Rescue Watchdog
 - [ ] Log inspection
-- [ ] Batch Actions: Selectable entries for each service
+- [ ] Selectable entries for each service
 - [ ] `docker pull` cronjob
 - [ ] Docker CLI wrapper
+- [ ] Batch/single backups for different types of DBs
+~~- [ ] Solve permission issues automatically(removes ro)~~
