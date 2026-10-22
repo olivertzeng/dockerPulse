@@ -1,11 +1,19 @@
 import docker
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 client = docker.from_env()
 
-@app.get("/api/containers")
+@app.get("/")
 def get_all_containers():
     containers = client.containers.list(all=True)
 
