@@ -1,19 +1,13 @@
 import docker
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+
 
 app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 client = docker.from_env()
 
-@app.get("/")
+@app.get("/api/containers")
 def get_all_containers():
     containers = client.containers.list(all=True)
 
@@ -22,3 +16,5 @@ def get_all_containers():
         result.append({"name": c.name, "status": c.status})
 
     return result
+
+app.mount("/api/containers", StaticFiles(directory="static", html=True), name="static")
